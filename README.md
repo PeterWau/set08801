@@ -1,5 +1,5 @@
 # set08801
-web tech
+Web Technologies
 
 ## 1. A description of the site that you are planning with enough background context for your reader to understand what you are trying to do.
 
@@ -10,7 +10,21 @@ Povo-Golf is a website for amateur golfers who are keen to improve their skills 
 
 ## 2. A summary of any background research into other similar sites, or useful technologies, libraries, or APIs that you have investigated with a description of how this has contributed to your project idea and design. 
 
-todo
+**Understanding Golf**
+
+GolfSidekick – golf guru.  This website Golf Sidekick - Simpler Better Faster Golf introduced concepts and analysis.  Light-hearted content for amateurs.  Focusses on strategies and mindset for playing the game.  Taking aspects of the analysis provided here, I was able to glean some ideas on what things maybe valuable to record and track. 
+
+Danny Maude - Professional coach.  A great teacher who produces content on different aspects of the technical side of the game.  From the website Golf Tips and Drills to help you create an effortless golf swing, I was able to understand what to practise and how to practise.
+
+**Styling**
+Still undecided with styling.  This site https://smacss.com/ has some good ideas related to structuring css in a sensible and maintainable way.  
+
+**Cookies and local storage**
+As a prototype using cookies and local storage will be great to persist the data that drives the site.     This will be easy to clear and re-design as the site develops.
+
+**Software design**
+The software architecture will follow SOLID principles as much as possible.  This should help with structuring the code behind the site and reduce maintenance in the long run.
+
 
 ## 3. A list of features and some discussion of why each feature is included. 
 
