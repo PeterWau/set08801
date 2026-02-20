@@ -12,23 +12,51 @@ Povo-Golf is a website for amateur golfers who are keen to improve their skills 
 
 **Understanding Golf**
 
-GolfSidekick – golf guru.  This website Golf Sidekick - Simpler Better Faster Golf introduced concepts and analysis.  Light-hearted content for amateurs.  Focusses on strategies and mindset for playing the game.  Taking aspects of the analysis provided here, I was able to glean some ideas on what things maybe valuable to record and track. 
+GolfSidekick – golf guru.  This website Golf Sidekick - Simpler [Better Faster Golf](https://www.golfsidekick.com/) introduced concepts and analysis.  Light-hearted content for amateurs.  Focusses on strategies and mindset for playing the game.  Taking aspects of the analysis provided here, I was able to glean some ideas on what things maybe valuable to record and track. 
 
-Danny Maude - Professional coach.  A great teacher who produces content on different aspects of the technical side of the game.  From the website Golf Tips and Drills to help you create an effortless golf swing, I was able to understand what to practise and how to practise.
+Danny Maude - Professional coach.  A great teacher who produces content on different aspects of the technical side of the game.  From the website [Golf Tips and Drills](https://www.dannymaude.com/blog) to help you create an effortless golf swing, I was able to understand what to practise and how to practise.
 
 **Styling**
+
 Still undecided with styling.  This site https://smacss.com/ has some good ideas related to structuring css in a sensible and maintainable way.  
 
 **Cookies and local storage**
+
 As a prototype using cookies and local storage will be great to persist the data that drives the site.     This will be easy to clear and re-design as the site develops.
 
 **Software design**
+
 The software architecture will follow SOLID principles as much as possible.  This should help with structuring the code behind the site and reduce maintenance in the long run.
 
 
 ## 3. A list of features and some discussion of why each feature is included. 
 
-todo
+**Register/Login**
+
+Not strictly necessary but does allow for some personalisation of the content.  This will be presented as a “Registration section” within the dashboard if the user is unregistered.  May also allow access to extra features later.
+
+**Training Videos**
+
+Provides a feature for the user to manage their learning material.  The user will use this feature to create links to useful training material (primarily YouTube videos) that demonstrate a particular skill and categorise them appropriately.  If managed appropriately the user should be able to cultivate their library to a series of content that they find very useful and can return to if they feel they are losing their way.
+
+**Practice Sessions**
+
+Provides a feature that allows the user to record results for a skill-focussed practice session.  This is the reality test where the user can provide feedback.   or practise that can be used to direct further training.  Results gathered here will inform reporting on distances, control, skill coverage and be used to inform the recommendations engine.
+
+**Progress reporting**
+
+***Distance report***
+
+Summarises collected distance and shot shape data that informs the user about club selection whilst they attempt to navigate the course.
+
+***Coverage report***
+
+This will give a breakdown of skills practiced and an assessment of strengths and weaknesses, giving insights in to skills that are being neglected. 
+
+***Backup***
+
+This feature will give the user the ability to export and import their data, allowing them to start from where they left off on an entirely new device.  It will also facilitate early testing and allow examination of the required data structures. 
+
 
 ## 4. Site organisation and/or navigation tree diagrams with associated discussion and explanation of how you plan to organise the pages that make up your site and how a user might typically navigate through those pages. NB. Your diagrams can be combined if that is a useful way to present the organisation and navigation for your site. These diagrams may be hand-drawn and scanned/photographed, or created using any image/diagram software as you think fit. 
 
