@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test</title>
+    <link rel="stylesheet" href="css/site.css" />
+    <script type="module" src="js/pages/test.js"></script>
+</head>
+<body>
+    <h1>Tests</h3>
+    <h2>Get static data</h2>
+    <h3>Club list</h3>
+    <ul id="allClubs"></ul>
+    
+    <h2>Register</h2>
+    <h3 id="registerMsgEl">Welcome</h3>
+    <input id="userEl" type="text"></input>
+    <button id="registerEl" onClick="register()">Register</button>
+</body>
+</html>
+<script>
+    
+    load();
+
+    function load() {
+        var currentUser = getUser();
+        
+        if (currentUser == null) {
+            document.getElementById("registerMsgEl").innerHTML = "Enter name to register";
+        }
+        else {
+            var userEl = document.getElementById("userEl");
+            document.getElementById("userEl").remove();
+            document.getElementById("registerEl").remove();
+            document.getElementById("registerMsgEl").innerHTML = "Welcome " + currentUser;
+        } 
+        console.log("load user:" + currentUser);
+ 
+    }
+
+    function register(user) {
+        var inputUser = document.getElementById("userEl");
+        
+        console.log(inputUser.length);
+        if (inputUser.length == 0) return;
+        console.log("register user:" + inputUser.value);
+        //if (inputUser != null)
+        localStorage.setItem('user',inputUser.value);
+        load();
+    }
+
+    function getUser() {
+        var currentUser = localStorage.getItem('user');
+        console.log("get user:" + currentUser);
+        return currentUser;
+    }
+</script>

@@ -3,6 +3,7 @@
 <head>
     <title>Povo Golf</title>
     <link rel="stylesheet" href="css/site.css" />
+    <script type="module" src="js/pages/index.js"></script>
 </head>
 <body>
 
@@ -14,12 +15,14 @@
         <a href="reports.html">Progress Reports</a>
     </div>
 
-    <h1>Welcome to Povo Golf</h1>
-    <h2>Instructions</h3>
-    <h3>Register</h3>
-    <p>We only require you to enter your name and you are ready to go.</p>
+    <h2 id="registerMsgEl">Welcome</h3>
+    <input id="userEl" type="text"></input>
+    <button id="registerEl" onClick="register()">Register</button>  
+
+    <h1>How to use Povo Golf</h3>
+    
     <h3>Dashboard</h3>
-    <p>Our Dashboard will guide your throug your learning journey.</p>
+    <p>Our Dashboard will guide your through your learning journey.</p>
     <h3>Add training videos</h3>
     <ol>
         <li>Go to <a href="videos.html">Training Videos</a></li>
@@ -27,23 +30,23 @@
         <li>
             Enter:
             <ul>
-                <li><strong>URL</strong> (YouTube link)</li>
-                <li><strong>Coach</strong> (e.g., Danny Maude)</li>
-                <li><strong>Skill Focus</strong> (a short tag like <code>start-downswing</code>)</li>
+                <li><strong>URL</strong> e.g. a YouTube play link</li>
+                <li><strong>Coach</strong> e.g. Danny Maude</li>
+                <li>Select a <strong>Skill Focus</strong> - Pick one:<div id="videoTagsEl"></p></li>
             </ul>
         </li>
+        <li>Click <strong>Save Video</strong></li>
     </ol>
-    <h3>Record practice seesions</h3>
+    <h3>Record practice session</h3>
     <ol>
         <li>Go to <a href="practice.html">Record Practice Session</a></li>
-        <li>Select a <strong>Club</strong> (Driver, 3, 5, 7, 9, PW)</li>
-        <li>Enter one <strong>Skill Focus</strong> (a single thought for the swing)</li>
+        <li>Select a <strong>Club</strong> - Pick one:<div id="clubsEl"></div></li>
+        <li>Select a <strong>Skill Focus</strong> - Pick one:<div id="skillsEl"></p></li>
         <li>
             Add shots:
             <ul>
-                <li><strong>Distance</strong> (number)</li>
-                <li><strong>Shape</strong> (Hook, Draw, Straight, Slice)</li>
-                <li><strong>Contact</strong> (Clean, Top, Fat)</li>
+                <li>Enter a <strong>Distance</strong> Estimate</li>
+                <li>Select a <strong>Shape</strong> - Pick one:<div id="flightsEl"></p></li>
             </ul>
         </li>
         <li>Click <strong>Save Session</strong></li>
@@ -56,3 +59,38 @@
     </ol>
 </body>
 <html>
+<script>
+    
+    load();
+
+    function load() {
+        var currentUser = getUser();
+        
+        if (currentUser == null) {
+            document.getElementById("registerMsgEl").innerHTML = "Enter name to register";
+        }
+        else {
+            var userEl = document.getElementById("userEl");
+            document.getElementById("userEl").remove();
+            document.getElementById("registerEl").remove();
+            document.getElementById("registerMsgEl").innerHTML = "Welcome " + currentUser;
+        } 
+        console.log("load user:" + currentUser);
+    }
+
+    function register(user) {
+        var inputUser = document.getElementById("userEl");
+        
+        console.log(inputUser.value.length);
+        if (inputUser.value == 0) return;
+        console.log("register user:" + inputUser.value);
+        localStorage.setItem('user',inputUser.value);
+        load();
+    }
+
+    function getUser() {
+        var currentUser = localStorage.getItem('user');
+        console.log("get user:" + currentUser);
+        return currentUser;
+    }
+</script>

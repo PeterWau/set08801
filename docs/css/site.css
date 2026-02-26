@@ -1,11 +1,57 @@
+/* Colors in Palette (Parrot Green)
+Color	Hex	RGB
+#234d20	(35,77,32)
+#36802d	(54,128,45)
+#77ab59	(119,171,89)
+#c9df8a	(201,223,138)
+#f0f7da	(240,247,218)
+*/
+
+body {
+  background-color: #f0f7da;
+}
+
+h1 {
+  color: #234d20;
+}
+
+h2 {
+  color: #36802d;
+}
+
+h3 {
+  color: #77ab59;
+}
+
+p {
+  color: #234d20;
+}
+
+a {
+  color: #234d20; 
+}
+
+button {
+  background-color: #77ab59;
+  color: #f0f7da;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #234d20;
+}
+
 .menu {
   overflow: hidden;
-  background-color: black;
+  background-color: #77ab59;
 }
 
 .menu a {
   float: left;
-  color: silver;
+  color: #f0f7da;
   text-align: center;
   padding: 10px 10px;
   text-decoration: none;
@@ -13,11 +59,12 @@
 }
 
 .menu a:hover {
-  background-color: gray;
-  color: black;
+  background-color: #36802d;
+  color: #f0f7da;
 }
 
 .menu a.active {
-  background-color: green;
-  color: white;
+  background-color: #234d20;
+  color: #f0f7da;
 }
+
