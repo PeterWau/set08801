@@ -10,7 +10,9 @@
     <h2>Get static data</h2>
     <h3>Club list</h3>
     <ul id="allClubs"></ul>
-    
+    <h3>Video Library</h3>
+    <ul id="videoLibrary"></ul>
+    <button id="saveVideosEl">Save Videos</button>
     <h2>Register</h2>
     <h3 id="registerMsgEl">Welcome</h3>
     <input id="userEl" type="text"></input>
@@ -18,10 +20,16 @@
 </body>
 </html>
 <script>
-    
+
+// Video
+
     load();
 
     function load() {
+        loadUser();
+    }
+
+    function loadUser() {
         var currentUser = getUser();
         
         if (currentUser == null) {
@@ -34,9 +42,7 @@
             document.getElementById("registerMsgEl").innerHTML = "Welcome " + currentUser;
         } 
         console.log("load user:" + currentUser);
- 
     }
-
     function register(user) {
         var inputUser = document.getElementById("userEl");
         
@@ -53,4 +59,5 @@
         console.log("get user:" + currentUser);
         return currentUser;
     }
+
 </script>
