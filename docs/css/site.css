@@ -47,6 +47,7 @@ button:hover {
 .menu {
   overflow: hidden;
   background-color: #77ab59;
+  border-radius: 10px;
 }
 
 .menu a {
@@ -56,6 +57,7 @@ button:hover {
   padding: 10px 10px;
   text-decoration: none;
   font-size: 20px;
+  border-radius: 10px;
 }
 
 .menu a:hover {

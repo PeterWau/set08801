@@ -1,21 +1,29 @@
-import { StaticDataService } from "../services/staticDataService.js";
-
-// service
-const service = new StaticDataService();
-
-// reference data
-const clubs = service.getAllClubs();
-const skills = service.getAllSkillTags();
-const flights = service.getAllFlights();
+import { register, login, currentUser} from "../services/userService.js";
 
 // elements
-const videoTagsElement = document.getElementById("videoTagsEl");
-const clubsElement = document.getElementById("clubsEl");
-const skillsElement = document.getElementById("skillsEl");
-const flightsElement = document.getElementById("flightsEl");
+const userFormElement = document.getElementById("userFormEl");
+const userElement = document.getElementById("userEl");
+const registerBtn = document.getElementById("registerEl");
+const loginBtn = document.getElementById("loginEl");
 
-// maybe first few for instructions
-videoTagsElement.innerText = "(" + skills.join(", ") + ")";
-clubsElement.innerText = "(" + clubs.join(", ") + ")";
-skillsElement.innerText = "(" + skills.join(", ") + ")";
-flightsElement.innerText = "(" + flights.join(", ") + ")";
+function redirect() {
+    window.location.href = "dashboard.html";
+}
+
+// events
+function load() {
+    //userFormElement.hidden = currentUser == null;
+    //registerBtn.hidden = currentUser == null;
+    //loginBtn.hidden = currentUser != null;
+};
+
+// login user
+loginBtn.addEventListener("click", function () {
+    if (login(userElement.value)) redirect();
+});
+
+// register user
+registerBtn.addEventListener("click", function () {
+    if(register(userElement.value)) redirect();
+});
+

@@ -6,11 +6,14 @@ const service = new TestService();
 // data
 const clubs = service.getAllClubs();
 const videos = service.getAllVideos();
+const user = service.loadUser();
 
 // elements
 const clubsElement = document.getElementById("allClubs");
 const videosEl = document.getElementById("videoLibrary");
 const saveBtn = document.getElementById("saveVideosEl");
+const registerBtn = document.getElementById("registerBtnEl");
+const usernameEl = document.getElementById("usernameEl");
 
 clubs.forEach(club => {
     
@@ -28,8 +31,15 @@ videos.forEach(v => {
     videosEl.appendChild(li);
 });
 
-// Add EventListener to btn
+// Events
+
+// save videos
 saveBtn.addEventListener("click", function () {
     console.log("test:Save Videos clicked")
     service.saveVideos();
+});
+
+// register user
+registerBtn.addEventListener("click", function () {
+    service.register(usernameEl);
 });

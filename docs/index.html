@@ -9,88 +9,16 @@
 
     <div class="menu">
         <a class="active" href="index.html">Povo Golf</a>
-        <a href="dashboard.html">Dashboard</a>
-        <a href="videos.html">Training Videos</a>
-        <a href="practice.html">Practice Sessions</a>
-        <a href="reports.html">Progress Reports</a>
     </div>
+ 
+    <h1>Welcome Povo Golf</h3>
 
-    <h2 id="registerMsgEl">Welcome</h3>
-    <input id="userEl" type="text"></input>
-    <button id="registerEl" onClick="register()">Register</button>  
-
-    <h1>How to use Povo Golf</h3>
+    <!-- <form id="userFormEl" > -->
+        <label for="userEl">Username</label>
+        <input id="userEl" type="text"></input>
+        <button id="loginEl">Login</button> 
+        <button id="registerEl">Register</button>
+    <!-- </form> -->
     
-    <h3>Dashboard</h3>
-    <p>Our Dashboard will guide your through your learning journey.</p>
-    <h3>Add training videos</h3>
-    <ol>
-        <li>Go to <a href="videos.html">Training Videos</a></li>
-        <li>Click <strong>Add Video</strong></li>
-        <li>
-            Enter:
-            <ul>
-                <li><strong>URL</strong> e.g. a YouTube play link</li>
-                <li><strong>Coach</strong> e.g. Danny Maude</li>
-                <li>Select a <strong>Skill Focus</strong> - Pick one:<div id="videoTagsEl"></p></li>
-            </ul>
-        </li>
-        <li>Click <strong>Save Video</strong></li>
-    </ol>
-    <h3>Record practice session</h3>
-    <ol>
-        <li>Go to <a href="practice.html">Record Practice Session</a></li>
-        <li>Select a <strong>Club</strong> - Pick one:<div id="clubsEl"></div></li>
-        <li>Select a <strong>Skill Focus</strong> - Pick one:<div id="skillsEl"></p></li>
-        <li>
-            Add shots:
-            <ul>
-                <li>Enter a <strong>Distance</strong> Estimate</li>
-                <li>Select a <strong>Shape</strong> - Pick one:<div id="flightsEl"></p></li>
-            </ul>
-        </li>
-        <li>Click <strong>Save Session</strong></li>
-    </ol>
-
-    <h3>Check your club distances</h3>
-    <ol>
-        <li>Go to <a href="reports.html">Distance Report</a></li>
-        <li>It shows a breakdown of average club distance that you can take to the course.</li>
-    </ol>
 </body>
 <html>
-<script>
-    
-    load();
-
-    function load() {
-        var currentUser = getUser();
-        
-        if (currentUser == null) {
-            document.getElementById("registerMsgEl").innerHTML = "Enter name to register";
-        }
-        else {
-            var userEl = document.getElementById("userEl");
-            document.getElementById("userEl").remove();
-            document.getElementById("registerEl").remove();
-            document.getElementById("registerMsgEl").innerHTML = "Welcome " + currentUser;
-        } 
-        console.log("load user:" + currentUser);
-    }
-
-    function register(user) {
-        var inputUser = document.getElementById("userEl");
-        
-        console.log(inputUser.value.length);
-        if (inputUser.value == 0) return;
-        console.log("register user:" + inputUser.value);
-        localStorage.setItem('user',inputUser.value);
-        load();
-    }
-
-    function getUser() {
-        var currentUser = localStorage.getItem('user');
-        console.log("get user:" + currentUser);
-        return currentUser;
-    }
-</script>

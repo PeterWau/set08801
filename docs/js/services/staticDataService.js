@@ -1,7 +1,6 @@
-import { Clubs, Flights, SkillTags } from "../domain/staticData.js" 
+import { Clubs, Flights, SkillTags } from "../data/staticData.js" 
 
-
-export class StaticDataService {
+export class staticDataService {
 
     getAllClubs(){
         return Clubs;
