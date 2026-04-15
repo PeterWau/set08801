@@ -17,9 +17,21 @@ export class Video {
     }
 }
 
+const videosKey = "pg.videos";
 export class Videos {
     constructor(videos = []) {
         this.videos = (videos ?? []).map(video => video instanceof Video ? video : Video.fromJson(video));
+    }
+
+    load() {
+        const videoLocal = localStorage.getItem(videosKey)
+        if (videoLocal != null) {
+            this.videos  = JSON.parse(videoLocal);
+        }
+    }
+    
+    save() {
+        localStorage.setItem(videosKey, JSON.stringify(this.videos));
     }
 
     getAllVideos() {
@@ -30,7 +42,21 @@ export class Videos {
         return this.videos.find(video => video.id === id) ?? null;
     }
 
-    update() {
+    update(video) {
+        const data = video instanceof Video ? video : Video.fromJson(video);
+        const existingIndex = this.videos.findIndex(item => item.id === data.id);
+
+        if (existingIndex >= 0) {
+            this.videos[existingIndex] = data;
+        } else {
+            let newIndex = this.videos.length + 1;
+            data.id = newIndex;
+            this.videos.push(data);
+        }
         
+        this.save()
+            
+        // for page
+        return data;
     }
 }
