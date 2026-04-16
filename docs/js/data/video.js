@@ -13,31 +13,7 @@ export class Video {
         this.skill = skill;
         this.embed = embed;
     }
-    
 
-    /* 
-    sample embed
-    <iframe width="560" height="315" 
-        src="https://www.youtube.com/embed/8MwTdZmicE0?si=rG53Rf710WOvHbfh&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    */
-    playUrl() {
-        return `https://www.youtube.com/embed/${this.embed}`;
-    }
-
-
-/*     get url() {
-        return this.age;
-    }
-
-        // Setter for url
-    set url(value) {
-        if (typeof value !== 'string') {
-            throw new Error("Invalid");
-        }
-        this.url = value;
-    }
-
-*/
     static fromJson(json = {}) {
         return new Video(json);
     }

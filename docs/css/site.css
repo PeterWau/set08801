@@ -61,6 +61,10 @@ section {
   border-radius: 2%;
 }
 
+.left {
+  flex: 0 0 200px; 
+}
+
 footer {
   text-align: center;
   border-style: solid;
@@ -120,26 +124,6 @@ button:hover {
   border-radius: 10px;
 }
 
-.menu a {
-  float: left;
-  color: #f0f7da;
-  text-align: center;
-  padding: 10px 10px;
-  text-decoration: none;
-  font-size: 20px;
-  border-radius: 10px;
-}
-
-.menu a:hover {
-  background-color: #36802d;
-  color: #f0f7da;
-}
-
-.menu a.active {
-  background-color: #234d20;
-  color: #f0f7da;
-}
-
 ul {
   list-style-type: none;
   padding: 0; 
@@ -147,7 +131,7 @@ ul {
 }
 
 li {
-  color: #f0f7da;
+  color: black;
   border-radius: 10px;
   cursor: pointer;
 }

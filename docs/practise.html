@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Practice</title>
+    <link rel="stylesheet" href="css/site.css" />
+    <script type="module" src="js/pages/practise.js"></script>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Povo Golf</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="videos.html">Training Videos</a>
+        <a class="active" href="practise.html">Practise Sessions</a>
+        <a href="reports.html">Progress Reports</a>
+    </nav>
+
+    <header>
+        <h1>Practise Sessions</h1>
+        <nav>
+            <button type="button" data-record>Record</button>
+            <button type="button" data-record>Save</button>
+        </nav>
+    </header>
+    <main>
+        <section class="left">
+            <h3>History</h3>
+            <ul data-practises>
+                <li>01 Apr 2026 - square takeaway</li>
+                <li>02 Apr 2026 - putting</li>
+            </ul>
+        </section>
+        <section>
+            <h3>Session</h3>
+            <input type="hidden" name="id" value="" readonly data-id />
+            <label for="data-skill">Skill:</label>
+            <input id="data-skill" name="skill" data-skill maxlength="20" required />
+        </section>
+    </main>
+    <footer>
+        <div>Messages</div>
+        <div>More Messages</div>
+    </footer>
+</body>
+<html>
