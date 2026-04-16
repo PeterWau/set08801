@@ -4,14 +4,40 @@ export class Video {
         id = null,
         url = "",
         coach = "",
-        skill = ""
+        skill = "",
+        embed = ""
     } = {}) {
         this.id =id;
         this.url = url;
         this.coach = coach;
-        this.skill = skill
+        this.skill = skill;
+        this.embed = embed;
     }
     
+
+    /* 
+    sample embed
+    <iframe width="560" height="315" 
+        src="https://www.youtube.com/embed/8MwTdZmicE0?si=rG53Rf710WOvHbfh&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    */
+    playUrl() {
+        return `https://www.youtube.com/embed/${this.embed}`;
+    }
+
+
+/*     get url() {
+        return this.age;
+    }
+
+        // Setter for url
+    set url(value) {
+        if (typeof value !== 'string') {
+            throw new Error("Invalid");
+        }
+        this.url = value;
+    }
+
+*/
     static fromJson(json = {}) {
         return new Video(json);
     }
@@ -58,5 +84,15 @@ export class Videos {
             
         // for page
         return data;
+    }
+
+    remove(video) {
+        if(!video instanceof Video) return;
+        const existingIndex = this.videos.findIndex(item => item.id === video.id);
+
+        if (existingIndex !== -1) {
+            this.videos.splice(existingIndex, 1); 
+        }
+  
     }
 }

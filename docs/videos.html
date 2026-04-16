@@ -6,42 +6,41 @@
     <script type="module" src="js/pages/videos.js"></script>
 </head>
 <body>
-
-    <div class="menu">
+    <nav>
         <a href="index.html">Povo Golf</a>
         <a href="dashboard.html">Dashboard</a>
         <a class="active" href="videos.html">Training Videos</a>
         <a href="practice.html">Practice Sessions</a>
         <a href="reports.html">Progress Reports</a>
-    </div>
-    <div>
+    </nav>
+    <header>
         <h1>Training Videos</h1>
- 
+    </header>
+    <main>
         <section>
-            <button type="button" data-new-video>New</button>
-            <h3>Videos</h3>
-            <ul data-videos>
+            <h3>Library</h3>
+            <ul class="video-library" data-videos>
             </ul>
         </section>
         <section>
-            <a id="play" target="_blank">Play</a>
+            <h3>Video</h3>
+            <iframe id="player" class="video-player" src="" title="YouTube video player" frameborder="0" allow="" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </section>
-        <section>
-            <form data-form>
-                <h3>Video</h3>
-                <label for="id">id:</label>
-                <input name="id" value="" readonly data-id />
-                <label for="data-url">Url:</label>
-                <input id="data-url" name="url" data-url maxlength="100" required />
-                <label for="data-coach">Coach:</label>
-                <input id="data-coach" data-coach maxlenth="20" required/>
-                <label for="data-skill">Skill:</label>
-                <input id="data-skill" name="skill" data-skill maxlength="20" required />
-
-                <button type="submit">Save</button>    
-            </form>
-        </section>
-
-    </div>    
+    </main>
+    <footer>
+        <h3>Edit Video</h3>
+        <button type="button" data-new-video>New</button>
+        <button type="button" data-remove-video>Remove</button>
+        <button type="button" data-save-video>Save</button>    
+        <form data-form>
+            <input type="hidden" name="id" value="" readonly data-id />
+            <label for="data-url">Url:</label>
+            <input id="data-url" name="url" data-url maxlength="100" required />
+            <label for="data-coach">Coach:</label>
+            <input id="data-coach" data-coach maxlenth="20" required/>
+            <label for="data-skill">Skill:</label>
+            <input id="data-skill" name="skill" data-skill maxlength="20" required />
+        </form>
+    </footer>   
 </body>
 <html>
