@@ -17,28 +17,33 @@
     <header>
         <h1>Practise Sessions</h1>
         <nav>
-            <button type="button" data-record>Record</button>
-            <button type="button" data-record>Save</button>
+            <button type="button" data-new>Record</button>
+            <button type="button" data-save>Save</button>
         </nav>
     </header>
     <main>
         <section class="left">
             <h3>History</h3>
             <ul data-practises>
-                <li>01 Apr 2026 - square takeaway</li>
-                <li>02 Apr 2026 - putting</li>
             </ul>
         </section>
         <section>
             <h3>Session</h3>
             <input type="hidden" name="id" value="" readonly data-id />
+            <label for="data-date">Date:</label>
+            <input type="date" id="data-date" name="data-date" data-date>
             <label for="data-skill">Skill:</label>
             <input id="data-skill" name="skill" data-skill maxlength="20" required />
+            <label for="data-club">Club:</label>
+            <input id="data-club" name="club" data-club maxlength="20" required />
+            <label for="data-distance">Distance:</label>
+            <input id="data-distance" name="distance" data-distance maxlength="3" required />
+            <label for="data-shape">Shape:</label>
+            <input id="data-shape" name="shape" data-shape maxlength="20" required />
         </section>
     </main>
     <footer>
-        <div>Messages</div>
-        <div>More Messages</div>
+        <div data-message>Keep up the great work</div>
     </footer>
 </body>
 <html>

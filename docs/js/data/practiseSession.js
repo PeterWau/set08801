@@ -1,15 +1,17 @@
 export class PractiseSession {
     constructor({
         id = null, 
-        sessionDate="", 
+        sessionDate=new Date().toDateString(), 
         skill="", 
         club="",
-        distance=0} = {}) {
+        distance=0,
+        shape=""} = {}) {
         this.id = this.id;
         this.sessionDate = sessionDate;
         this.skill = skill;
         this.club = club;
         this.distance = distance;
+        this.shape = shape;
     }
     
     static fromJson(json = {}) {
@@ -45,7 +47,7 @@ export class PractiseSessions {
     
         update(practiseSession) {
             const data = practiseSession instanceof PractiseSession ? practiseSession : PractiseSession.fromJson(video);
-            const existingIndex = this.videos.findIndex(item => item.id === data.id);
+            const existingIndex = this.practiseSessions.findIndex(item => item.id === data.id);
     
             if (existingIndex >= 0) {
                 this.practiseSessions[existingIndex] = data;
