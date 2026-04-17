@@ -9,12 +9,11 @@ function initialise() {
     const practiseSessions = dataPractises.getAll();
 
     // actions
-    const add = document.querySelector("[data-new]");
-    const save = document.querySelector("[data-save]");
-
-    // document
     const list = document.querySelector("[data-practises]");
-
+    const add = document.querySelector("[data-new]");
+    const remove = document.querySelector("[data-remove-video]");
+    const save = document.querySelector("[data-save]");
+   
     // inputs
     const id = document.querySelector("[data-id]");
     const date = document.querySelector("[data-date]");
@@ -22,7 +21,7 @@ function initialise() {
     const club = document.querySelector("[data-club]");
     const distance = document.querySelector("[data-distance]");
     const shape = document.querySelector("[data-shape]");
-    
+
     // message
     const message = document.querySelector("[data-message]");
 
@@ -32,16 +31,26 @@ function initialise() {
 
     const addToHistory = practise => {
         const listItem = document.createElement("li");
-        const link = document.createElement("a");
-        
-        link.innerHTML = `${practise.sessionDate}: ${practise.skill}`;
+    
+        listItem.innerHTML = `${practise.sessionDate}: ${practise.skill}`;
         listItem.id = "his-" + practise.id;
-        listItem.append(link);
+        list.append(listItem);
 
-        link.addEventListener("click", () => {
+        listItem.addEventListener("click", () => {
+            
             selectedId = practise.id;
             selected = dataPractises.get(selectedId);
+
             fillForm(selected);
+
+            // deselect
+            const listEntries = list.querySelectorAll("li");
+            listEntries.forEach(entry => {
+                entry.classList.remove("selected");
+            });            
+            // selected
+            listItem.classList.add("selected");
+
         });
 
         list.appendChild(listItem);
@@ -87,6 +96,17 @@ function initialise() {
         fillForm(addPractice);
     });
 
+    remove.addEventListener("click", event => {
+        dataPractises.remove(selected);
+        const found=document.getElementById(`his-${selected.id}`);
+        
+        if (found) {
+            found.remove();
+        }
+        
+        selectedId = null;
+    });
+
     save.addEventListener("click", event => {
         event.preventDefault();
 
@@ -109,6 +129,11 @@ function initialise() {
         }
         message.innerHTML = "Saved";
     });
+        
+    const topItem = list.querySelector("li");
+    if (topItem) {
+      topItem.click();
+    }
 }
 
 initialise();

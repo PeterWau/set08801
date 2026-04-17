@@ -24,25 +24,33 @@
     <main>
         <section>
             <h3>Library</h3>
+            
             <ul class="video-library" data-videos>
             </ul>
         </section>
         <section>
             <h3>Video</h3>
+            
+            <form data-form>
+                <input type="hidden" name="id" value="" readonly data-id />
+                <div class="form-group">
+                    <label for="data-url">Url:</label>    
+                    <input id="data-url" name="url" placeholder="Enter Url" maxlength="100" required data-url />
+                </div>    
+                <div class="form-group">
+                    <label for="data-coach">Coach:</label>
+                    <input id="data-coach" placeholder="Enter Coach" data-coach maxlenth="20" required/>
+                </div>
+                <div class="form-group">
+                    <label for="data-skill">Skill:</label>
+                    <input id="data-skill" name="skill" placeholder="Enter skill" data-skill maxlength="20" required />
+                </div>
+            </form>
             <iframe id="player" class="video-player" src="" title="YouTube video player" frameborder="0" allow="" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </section>
     </main>
     <footer>
-        <h3>Edit Video</h3>
-        <form data-form>
-            <input type="hidden" name="id" value="" readonly data-id />
-            <label for="data-url">Url:</label>
-            <input id="data-url" name="url" data-url maxlength="100" required />
-            <label for="data-coach">Coach:</label>
-            <input id="data-coach" data-coach maxlenth="20" required/>
-            <label for="data-skill">Skill:</label>
-            <input id="data-skill" name="skill" data-skill maxlength="20" required />
-        </form>
+        <div data-message>Keep up the great work</div>
     </footer>   
 </body>
 <html>

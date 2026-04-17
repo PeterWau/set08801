@@ -27,16 +27,24 @@ function initialise() {
 
     const addToLibrary = video => {
         const listItem = document.createElement("li");
-        const link = document.createElement("a");
         
-        link.innerHTML = video.skill;
+        listItem.innerHTML = `${video.skill}: ${video.coach}`;
         listItem.id = "lib-" + video.id;
-        listItem.append(link);
+        list.append(listItem);
 
-        link.addEventListener("click", () => {
+        listItem.addEventListener("click", () => {
             selectedId = video.id;
             selectedVideo = dataVideos.getVideo(selectedId);
             fillForm(selectedVideo);
+            
+            // deselect
+            const listEntries = list.querySelectorAll("li");
+            listEntries.forEach(entry => {
+                entry.classList.remove("selected");
+            });
+            // selected
+            listItem.classList.add("selected");
+
         });
 
         list.appendChild(listItem);
@@ -99,6 +107,10 @@ function initialise() {
         }
     });
     
+    const topItem = list.querySelector("li");
+    if (topItem) {
+      topItem.click();
+    }
 }
 
 initialise();
