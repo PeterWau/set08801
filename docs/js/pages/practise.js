@@ -1,4 +1,5 @@
 import { PractiseSession, PractiseSessions } from "../data/practiseSession.js";
+import { Clubs, Flights, SkillTags } from "../data/staticData.js" 
 
 function initialise() {
 
@@ -51,6 +52,21 @@ function initialise() {
         addToHistory(practise);
     });
     
+    // static data
+    Clubs.forEach(clb => {
+        const selectItem = document.createElement("option");
+        selectItem.value = clb;
+        selectItem.innerHTML = clb;
+        club.appendChild(selectItem);
+    });
+
+    Flights.forEach(flt => {
+        const selectItem = document.createElement("option");
+        selectItem.value = flt;
+        selectItem.innerHTML = flt;
+        shape.appendChild(selectItem);
+    })
+
     const fillForm = practise => {
         if (!practise) {
             return;
