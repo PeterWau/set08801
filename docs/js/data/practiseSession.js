@@ -1,3 +1,5 @@
+import { Clubs, Flights, SkillTags } from "../data/staticData.js" 
+
 export class PractiseSession {
     constructor({
         id = null, 
@@ -70,5 +72,21 @@ export class PractiseSessions {
                 this.practiseSessions.splice(existingIndex, 1); 
             }
       
+        }
+
+        dashboardMissing() {
+            let missing = [];
+            this.load();
+            if (this.practiseSessions.length === 0)
+                return "Please record practise sessions.";
+
+            Clubs.forEach(clb => {
+                
+                let found = this.practiseSessions.find(cb => cb.club === clb);
+                if (found === undefined) {
+                    missing.push(clb);
+                }
+            });
+            return missing;
         }
 }
