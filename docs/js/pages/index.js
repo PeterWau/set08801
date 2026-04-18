@@ -1,29 +1,30 @@
-import { register, login, currentUser} from "../services/userService.js";
+import { User } from "../data/user.js";
 
-// elements
-const userFormElement = document.getElementById("userFormEl");
-const userElement = document.getElementById("userEl");
-const registerBtn = document.getElementById("registerEl");
-const loginBtn = document.getElementById("loginEl");
+function initialise() {
+ 
+    const dataUser = new User();
+    dataUser.load();
 
-function redirect() {
-    window.location.href = "dashboard.html";
+    const registerForm = document.querySelector("[register-form]");
+    const register = document.querySelector("[register]");
+    const registerUser = document.querySelector("[data-register-user]");
+    const welcome = document.querySelector("[welcome]");
+
+    setUser();
+
+    function setUser() {
+
+        if (dataUser.name !== "") {
+            welcome.innerHTML = `Welcome ${dataUser.name}`;            
+            registerForm.style.display = "none";
+            return;
+        }
+    }
+    
+    register.addEventListener("click", event => {
+        dataUser.register(registerUser.value);
+        setUser();
+    });
 }
 
-// events
-function load() {
-    //userFormElement.hidden = currentUser == null;
-    //registerBtn.hidden = currentUser == null;
-    //loginBtn.hidden = currentUser != null;
-};
-
-// login user
-loginBtn.addEventListener("click", function () {
-    if (login(userElement.value)) redirect();
-});
-
-// register user
-registerBtn.addEventListener("click", function () {
-    if(register(userElement.value)) redirect();
-});
-
+initialise();

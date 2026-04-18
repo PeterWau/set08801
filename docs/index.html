@@ -7,18 +7,40 @@
 </head>
 <body>
 
-    <div class="menu">
-        <a class="active" href="index.html">Povo Golf</a>
-    </div>
- 
-    <h1>Welcome Povo Golf</h3>
+    <nav>
+        <a href="index.html" class="active">Dashboard</a>
+        <a href="videos.html">Training Videos</a>
+        <a href="practise.html">Practise Sessions</a>
+    </nav>
 
-    <!-- <form id="userFormEl" > -->
-        <label for="userEl">Username</label>
-        <input id="userEl" type="text"></input>
-        <button id="loginEl">Login</button> 
-        <button id="registerEl">Register</button>
-    <!-- </form> -->
-    
+    <header>
+        <h1>Dashboard</h1>
+        <h3 welcome></h3>
+    </header>
+    <main>
+        <section>
+            <form register-form>
+                <h3>Please Register</h3>
+                <div class="form-group">
+                    <label for="data-register">Name:</label>
+                    <input id="data-register-user" data-register-user maxlength="20" required />
+                </div>
+                <button type="button" register>Register</button>
+            </form>
+            <h3>Recommendations</h3>
+                <h3>Training Gaps Reminder</h3>
+                <p>please record training sessions for the following clubs:</p>
+                <ul>
+                    <li>8 Iron</li>
+                    <li>Pitching Wedge</li>
+                </ul>
+        </section>
+        <section>
+            <h3>Distance Summary</h3>
+        </section>
+    </main>
+    <footer>
+        <div data-message>Keep up the great work</div>
+    </footer>
 </body>
 <html>
