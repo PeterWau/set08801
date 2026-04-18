@@ -78,7 +78,7 @@ export class PractiseSessions {
             let missing = [];
             this.load();
             if (this.practiseSessions.length === 0)
-                return "Please record practise sessions.";
+                return [];
 
             Clubs.forEach(clb => {
                 
@@ -89,4 +89,29 @@ export class PractiseSessions {
             });
             return missing;
         }
+
+        dashboardDistances() {
+            let distances = [];
+            this.load();
+            if (this.practiseSessions.length === 0)
+                return [];
+
+            Clubs.forEach(clb => {
+                
+                let found = this.practiseSessions.find(cb => cb.club === clb);
+                if (found !== undefined) {
+                    
+                    // untidy - found should be a PS not Object
+                    console.log(`found ${found.club}`);
+                    
+                    const ps = new PractiseSession();
+                    ps.club = clb;
+                    ps.distance = found.distance;
+                    
+                    distances.push(ps); // chart uses club, distance but later flight
+                }
+            });
+            return distances;
+        }
+
 }

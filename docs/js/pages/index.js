@@ -15,6 +15,7 @@ function initialise() {
     const registerUser = document.querySelector("[data-register-user]");
     const welcome = document.querySelector("[welcome]");
     const dashboardMissing = document.querySelector("[dashboard-missing]");
+    const dashboardDistances = document.querySelector("[dashboard-distances]");
 
     setUser();
 
@@ -34,7 +35,6 @@ function initialise() {
 
     // Gaps
     let gaps = dataPractices.dashboardMissing();
-
     gaps.forEach(missing => {
         const listItem = document.createElement("li");
     
@@ -42,6 +42,45 @@ function initialise() {
         dashboardMissing.append(listItem);
     });
 
+    // Distances
+    let distances = dataPractices.dashboardDistances(); // latest
+    const clubChart = []; 
+    const distChart = [];
+    distances.forEach(cd => {
+
+        if (cd instanceof PractiseSession) {
+            console.log(cd.club);
+        
+            clubChart.push(cd.club);
+            distChart.push(cd.distance);
+        }
+        
+        const bubbleSize = 40; 
+
+        const trace = {
+                x: clubChart,
+                y: distChart,
+                mode: 'markers+text',
+                type: 'scatter',
+                text: distChart.map(d => `${d} mtrs`),
+                textposition: 'top center',
+                marker: {
+                size: Array(clubChart.length).fill(bubbleSize),         
+                color: 'light-blue',
+                line: { color: 'black', width: 1 }
+            }
+        };
+
+        const layout = {
+             title: { text: 'Distances', font: { size: 18 } },
+             xaxis: { title: 'Club' },
+             yaxis: { title: 'Distance (mtrs)', range: [0, 300] },
+             showlegend: false
+        };
+
+        Plotly.newPlot('distance-chart', [trace], layout);
+
+    });
 }
 
 initialise();

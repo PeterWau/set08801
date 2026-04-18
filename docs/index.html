@@ -4,9 +4,9 @@
     <title>Povo Golf</title>
     <link rel="stylesheet" href="css/site.css" />
     <script type="module" src="js/pages/index.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 <body>
-
     <nav>
         <a href="index.html" class="active">Dashboard</a>
         <a href="videos.html">Training Videos</a>
@@ -18,7 +18,7 @@
         <h3 welcome></h3>
     </header>
     <main>
-        <section>
+        <section class="left">
             <form register-form>
                 <h3>Please Register</h3>
                 <div class="form-group">
@@ -28,12 +28,15 @@
                 <button type="button" register>Register</button>
             </form>
             <h3>Reminders</h3>
-                <h4>Missing Training Gaps</h3>
+                <h4>Please record practice sessions for these clubs:</h3>
                 <ul dashboard-missing>
                 </ul>
         </section>
         <section>
             <h3>Distance Summary</h3>
+            <div id="distance-chart" dashboard-distances class="chartDistances"></div>
+            <!-- <ul dashboard-distances>
+            </ul> -->
         </section>
     </main>
     <footer>

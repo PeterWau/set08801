@@ -32,7 +32,7 @@ function initialise() {
     const addToHistory = practise => {
         const listItem = document.createElement("li");
     
-        listItem.innerHTML = `${practise.sessionDate}: ${practise.skill}`;
+        listItem.innerHTML = `${practise.sessionDate}-${practise.club}-${practise.skill}`;
         listItem.id = "his-" + practise.id;
         list.append(listItem);
 
