@@ -9,21 +9,21 @@ function initialise() {
     const practiseSessions = dataPractises.getAll();
 
     // actions
-    const list = document.querySelector("[data-practises]");
-    const add = document.querySelector("[data-new]");
-    const remove = document.querySelector("[data-remove-video]");
-    const save = document.querySelector("[data-save]");
+    const list = document.getElementById("practises");
+    const add = document.getElementById("practise-add");
+    const remove = document.getElementById("practise-remove");
+    const save = document.getElementById("practise-save");
    
     // inputs
-    const id = document.querySelector("[data-id]");
-    const date = document.querySelector("[data-date]");
-    const skill = document.querySelector("[data-skill]");
-    const club = document.querySelector("[data-club]");
-    const distance = document.querySelector("[data-distance]");
-    const shape = document.querySelector("[data-shape]");
+    const id = document.getElementById("data-id");
+    const date = document.getElementById("data-date");
+    const skill = document.getElementById("data-skill");
+    const club = document.getElementById("data-club");
+    const distance = document.getElementById("data-distance");
+    const shape = document.getElementById("data-shape");
 
     // message
-    const message = document.querySelector("[data-message]");
+    const message = document.getElementById("message");
 
     // selected
     var selected = new PractiseSession();
@@ -91,9 +91,8 @@ function initialise() {
     
     add.addEventListener("click", event => {
         selectedId = null;
-        const addPractice = new PractiseSession();
-
-        fillForm(addPractice);
+        const addPractise = new PractiseSession();
+        fillForm(addPractise);
     });
 
     remove.addEventListener("click", event => {
@@ -129,11 +128,8 @@ function initialise() {
         }
         message.innerHTML = "Saved";
     });
-        
-    const topItem = list.querySelector("li");
-    if (topItem) {
-      topItem.click();
-    }
+
+    add.click();
 }
 
 initialise();

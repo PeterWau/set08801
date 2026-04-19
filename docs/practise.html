@@ -15,46 +15,46 @@
     <header>
         <h1>Practise Sessions</h1>
         <nav>
-            <button type="button" data-new>Record</button>
-            <button type="button" data-remove-video>Remove</button>
-            <button type="button" data-save>Save</button>
+            <button id="practise-add" type="button">Record</button>
+            <button id="practise-remove" type="button">Remove</button>
+            <button id="practise-save" type="button">Save</button>
         </nav>
     </header>
     <main>
         <section class="left">
             <h3>History</h3>
-            <ul data-practises>
+            <ul id="practises">
             </ul>
         </section>
         <section>
             <h3>Session</h3>
             <form>
-                <input type="hidden" name="id" value="" readonly data-id />
+                <input id="data-id" type="hidden" name="id" value="" readonly />
                 <div class="form-group">
                     <label for="data-date">Date:</label>
-                    <input type="date" id="data-date" name="data-date" data-date>
+                    <input id="data-date" type="date">
                 </div>
                 <div class="form-group">
                     <label for="data-skill">Skill:</label>
-                    <input id="data-skill" name="skill" data-skill maxlength="20" required />
+                    <input id="data-skill" name="skill" maxlength="20" required />
                 </div>
                 <div class="form-group">    
                     <label for="data-club">Club:</label>
-                    <select id="data-club" name="data-club" data-club></select>
+                    <select id="data-club" name="data-club"></select>
                 </div>
                 <div class="form-group">
                     <label for="data-distance">Distance:</label>
-                    <input id="data-distance" type="number" name="distance" data-distance maxlength="3" required />
+                    <input id="data-distance" type="number" name="distance" maxlength="3" required />
                 </div>
                 <div class="form-group">
                     <label for="data-shape">Shape:</label>
-                    <select id="data-shape" name="shape" data-shape></select>
+                    <select id="data-shape" name="shape"></select>
                 </div>
             </form>
         </section>
     </main>
     <footer>
-        <div data-message>Keep up the great work</div>
+        <h3 id="message">Keep up the great work</h3>
     </footer>
 </body>
 <html>

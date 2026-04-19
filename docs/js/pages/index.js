@@ -9,13 +9,12 @@ function initialise() {
     const dataPractices = new PractiseSessions();
     dataUser.load();
 
-
-    const registerForm = document.querySelector("[register-form]");
-    const register = document.querySelector("[register]");
-    const registerUser = document.querySelector("[data-register-user]");
-    const welcome = document.querySelector("[welcome]");
-    const dashboardMissing = document.querySelector("[dashboard-missing]");
-    const dashboardDistances = document.querySelector("[dashboard-distances]");
+    const registerForm = document.getElementById("register-form");
+    const register = document.getElementById("register");
+    const registerUser = document.getElementById("register-user");
+    const welcome = document.getElementById("welcome");
+    const dashboardMissing = document.getElementById("dashboard-missing");
+    const dashboardDistances = document.getElementById("dashboard-distances");
 
     setUser();
 

@@ -3,7 +3,7 @@ import { Clubs, Flights, SkillTags } from "../data/staticData.js"
 export class PractiseSession {
     constructor({
         id = null, 
-        sessionDate=new Date().toDateString(), 
+        sessionDate=new Date().toISOString().split('T')[0], 
         skill="", 
         club="",
         distance=0,
@@ -77,8 +77,8 @@ export class PractiseSessions {
         dashboardMissing() {
             let missing = [];
             this.load();
-            if (this.practiseSessions.length === 0)
-                return [];
+            // if (this.practiseSessions.length === 0)
+            //     return [];
 
             Clubs.forEach(clb => {
                 
@@ -93,23 +93,20 @@ export class PractiseSessions {
         dashboardDistances() {
             let distances = [];
             this.load();
-            if (this.practiseSessions.length === 0)
-                return [];
+
+            // if (this.practiseSessions.length === 0)
+            //     return [];
 
             Clubs.forEach(clb => {
                 
                 let found = this.practiseSessions.find(cb => cb.club === clb);
+                                
+                const ps = new PractiseSession();
+                ps.club = clb;
                 if (found !== undefined) {
-                    
-                    // untidy - found should be a PS not Object
-                    console.log(`found ${found.club}`);
-                    
-                    const ps = new PractiseSession();
-                    ps.club = clb;
                     ps.distance = found.distance;
-                    
-                    distances.push(ps); // chart uses club, distance but later flight
                 }
+                distances.push(ps); // chart uses club, distance but later flight
             });
             return distances;
         }
