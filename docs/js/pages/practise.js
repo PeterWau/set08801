@@ -26,20 +26,20 @@ function initialise() {
     const message = document.getElementById("message");
 
     // selected
-    var selected = new PractiseSession();
-    let selectedId = null;
-
+    let selected = new PractiseSession();
+    
     const addToHistory = practise => {
         const listItem = document.createElement("li");
     
         listItem.innerHTML = `${practise.sessionDate}-${practise.club}-${practise.skill}`;
-        listItem.id = "his-" + practise.id;
+        listItem.dataset.sessionId = `${practise.id}`;
         list.append(listItem);
 
         listItem.addEventListener("click", () => {
             
-            selectedId = practise.id;
-            selected = dataPractises.get(selectedId);
+            // get practise id
+            const id = parseInt(event.target.dataset.sessionId);
+            selected = dataPractises.get(id);
 
             fillForm(selected);
 
@@ -90,35 +90,40 @@ function initialise() {
     }
     
     add.addEventListener("click", event => {
-        selectedId = null;
         const addPractise = new PractiseSession();
         fillForm(addPractise);
     });
 
     remove.addEventListener("click", event => {
         dataPractises.remove(selected);
-        const found=document.getElementById(`his-${selected.id}`);
-        
+        const query = `[data-session-id="${selected.id}"]`;
+        const found=document.querySelector(query);
         if (found) {
             found.remove();
         }
-        
-        selectedId = null;
+        dataPractises.save();
+        message.innerHTML = "Saved";
     });
 
     save.addEventListener("click", event => {
         event.preventDefault();
 
-        let isNew = (selectedId == null);
+        let isNew = (selected.id === null);
         let updated = new PractiseSession();
         
-        updated.id=selectedId;
+        updated.id=selected.id;
         updated.sessionDate = date.value;
         updated.skill=skill.value;
         updated.club=club.value;
         updated.distance=distance.value;
         updated.shape=shape.value;
         
+        // is it valid data?
+        if (!updated.isValid()) {
+            message.innerHTML = `Invalid entry - Please Retry`;
+            return;
+        } 
+
         const newPractise = dataPractises.update(updated);
         fillForm(newPractise);
         

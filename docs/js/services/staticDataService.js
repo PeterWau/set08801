@@ -1,4 +1,4 @@
-import { Clubs, Flights, SkillTags } from "../data/staticData.js" 
+/* import { Clubs, Flights, SkillTags } from "../data/staticData.js" 
 
 export class staticDataService {
 
@@ -13,4 +13,4 @@ export class staticDataService {
     getAllSkillTags(){
         return SkillTags;
     }
-}
+} */

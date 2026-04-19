@@ -84,6 +84,8 @@ function initialise() {
         if (found) {
             found.remove();
         }
+        dataVideos.save();
+        message.innerHTML = "Saved";
     });
     
     save.addEventListener("click", event => {
@@ -91,7 +93,7 @@ function initialise() {
 
         try {
             
-            let isNew = (selectedVideo.id == null);
+            let isNew = (selectedVideo.id === null);
             let updated = new Video();
             
             updated.id=selectedVideo.id;

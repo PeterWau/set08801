@@ -16,6 +16,15 @@ export class PractiseSession {
         this.shape = shape;
     }
     
+    isValid() {
+        const maxDistance = 400;
+        if (this.club.length === 0) return false;
+        if (this.distance > maxDistance || this.distance === 0) return false;
+        if (this.skill.length === 0) return false;
+        if (this.shape.length === 0) return false;
+        return true;
+    }
+
     static fromJson(json = {}) {
         return new PractiseSession(json);
     }
