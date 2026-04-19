@@ -17,17 +17,28 @@ export class Video {
     static fromJson(json = {}) {
         return new Video(json);
     }
+
+    isValid() {
+        if (this.url.length === 0) return false;
+        if (this.coach.length === 0) return false;
+        if (this.skill.length === 0) return false;
+        if (!this.url.includes("embed")) return false;
+        return true;
+    }
+
 }
 
 const videosKey = "pg.videos";
+const seed = [{"id":1,"url":"https://www.youtube.com/embed/8MwTdZmicE0?si=rG53Rf710WOvHbfh","coach":"Danny Maude","skill":"Arm Lift","embed":""}];
+
 export class Videos {
     constructor(videos = []) {
         this.videos = (videos ?? []).map(video => video instanceof Video ? video : Video.fromJson(video));
     }
 
     load() {
-        const videoLocal = localStorage.getItem(videosKey)
-        if (videoLocal != null) {
+        const videoLocal = localStorage.getItem(videosKey);
+        if (videoLocal !== null) {
             this.videos  = JSON.parse(videoLocal);
         }
     }
@@ -56,7 +67,7 @@ export class Videos {
             this.videos.push(data);
         }
         
-        this.save()
+        this.save();
             
         // for page
         return data;
@@ -70,5 +81,6 @@ export class Videos {
             this.videos.splice(existingIndex, 1); 
         }
   
+        this.save();
     }
 }

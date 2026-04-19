@@ -13,42 +13,41 @@
     </nav>
     <header>
         <h1>Training Videos</h1>
-        <nav>
-            <button type="button" data-new-video>New</button>
-            <button type="button" data-remove-video>Remove</button>
-            <button type="button" data-save-video>Save</button>              
-        </nav>
+
     </header>
     <main>
         <section>
             <h3>Library</h3>
-            
-            <ul class="video-library" data-videos>
+            <ul id="videos" class="video-library">
             </ul>
         </section>
         <section>
             <h3>Video</h3>
-            
-            <form data-form>
-                <input type="hidden" name="id" value="" readonly data-id />
+            <nav>
+                <button id="add-video" type="button">New</button>
+                <button id="remove-video" type="button">Remove</button>
+                <button id="save-video" type="button">Save</button>              
+            </nav>
+            <form id="video-form">
+                <input id="video-id" type="hidden" readonly />
                 <div class="form-group">
-                    <label for="data-url">Url:</label>    
-                    <input id="data-url" name="url" placeholder="Enter Url" maxlength="100" required data-url />
+                    <label for="video-url">Url:</label>    
+                    <input id="video-url" name="url" placeholder="Enter Url" maxlength="100" required data-url />
                 </div>    
                 <div class="form-group">
-                    <label for="data-coach">Coach:</label>
-                    <input id="data-coach" placeholder="Enter Coach" data-coach maxlenth="20" required/>
+                    <label for="video-coach">Coach:</label>
+                    <input id="video-coach" placeholder="Enter Coach" maxlenth="20" required/>
                 </div>
                 <div class="form-group">
-                    <label for="data-skill">Skill:</label>
-                    <input id="data-skill" name="skill" placeholder="Enter skill" data-skill maxlength="20" required />
+                    <label for="video-skill">Skill:</label>
+                    <input id="video-skill" name="skill" placeholder="Enter skill" maxlength="20" required />
                 </div>
             </form>
             <iframe id="player" class="video-player" src="" title="YouTube video player" frameborder="0" allow="" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </section>
     </main>
     <footer>
-        <div data-message>Keep up the great work</div>
+        <h2 id="message">Keep up the great work</h2>
     </footer>   
 </body>
 <html>

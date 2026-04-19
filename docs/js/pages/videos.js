@@ -4,16 +4,17 @@ import { Video, Videos } from "../data/video.js";
 
 function initialise() {
    
-    const list = document.querySelector("[data-videos]");
-    const add = document.querySelector("[data-new-video]");
-    const remove = document.querySelector("[data-remove-video]");
-    const save = document.querySelector("[data-save-video]");
-    const form = document.querySelector("[data-form]");
-    const id = document.querySelector("[data-id]");
-    const url = document.querySelector("[data-url]");
-    const coach = document.querySelector("[data-coach]");
-    const skill = document.querySelector("[data-skill]");
-   
+    const list = document.getElementById("videos");
+    const add = document.getElementById("add-video");
+    const remove = document.getElementById("remove-video");
+    const save = document.getElementById("save-video");
+    const form = document.getElementById("video-form");
+    const id = document.getElementById("video-id");;
+    const url = document.getElementById("video-url");
+    const coach = document.getElementById("video-coach");
+    const skill = document.getElementById("video-skill");
+    const message = document.getElementById("message");
+
     const player = document.getElementById("player");
 
     // videos object
@@ -21,20 +22,20 @@ function initialise() {
     dataVideos.load();
     
     const videos = dataVideos.getAllVideos();
-
-    var selectedVideo = new Video;
-    let selectedId = null;
+    let selectedVideo = new Video(); 
 
     const addToLibrary = video => {
         const listItem = document.createElement("li");
         
         listItem.innerHTML = `${video.skill}: ${video.coach}`;
-        listItem.id = "lib-" + video.id;
+        listItem.dataset.videoId = `${video.id}`;
         list.append(listItem);
 
         listItem.addEventListener("click", () => {
-            selectedId = video.id;
-            selectedVideo = dataVideos.getVideo(selectedId);
+            
+            // get video from selected id
+            const id = parseInt(event.target.dataset.videoId);
+            selectedVideo = dataVideos.getVideo(id);
             fillForm(selectedVideo);
             
             // deselect
@@ -71,46 +72,56 @@ function initialise() {
     }
 
     add.addEventListener("click", event => {
-        selectedId = null;
+        let selectedVideo = new Video();
         fillForm(new Video());
     });
 
     remove.addEventListener("click", event => {
         dataVideos.remove(selectedVideo);
-        const found=document.getElementById("lib-"+selectedVideo.id);
+        const query = `[data-video-id="${selectedVideo.id}"]`;
+        const found=document.querySelector(query);
         
         if (found) {
             found.remove();
         }
-        
-        selectedId = null;
     });
-
     
     save.addEventListener("click", event => {
         event.preventDefault();
 
-        let isNew = (selectedId == null);
-        let updated = new Video();
+        try {
+            
+            let isNew = (selectedVideo.id == null);
+            let updated = new Video();
+            
+            updated.id=selectedVideo.id;
+            updated.url=url.value;
+            updated.coach=coach.value;
+            updated.skill=skill.value;
+
+            // is it valid data?
+            if (!updated.isValid()) {
+                message.innerHTML = `Invalid entry - Please Retry`;
+                return;
+            } 
+
+            const newVideo = dataVideos.update(updated);
+            
+            fillForm(newVideo);
+            
+            // only add new entries to library
+            if (isNew) {
+                addToLibrary(newVideo);
+            }
+            message.innerHTML = `Saved`;
         
-        updated.id=selectedId;
-        updated.url=url.value;
-        updated.coach=coach.value;
-        updated.skill=skill.value;
-        
-        const newVideo = dataVideos.update(updated);
-        fillForm(newVideo);
-        
-        // only add new entries to library
-        if (isNew) {
-            addToLibrary(newVideo);
         }
+        catch (error)
+        {
+            // Permissions policy violation: compute-pressure is not allowed in this document.
+            message.innerHTML = `Save failed: ${error.message}`;
+        } 
     });
-    
-    const topItem = list.querySelector("li");
-    if (topItem) {
-      topItem.click();
-    }
 }
 
 initialise();

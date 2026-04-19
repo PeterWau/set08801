@@ -70,6 +70,7 @@ footer {
   border-style: solid;
   border-color: #234d20;
   border-radius: 2%;
+  height: 50px;
 }
 
 h1 {
@@ -91,7 +92,6 @@ p {
 a {
   color: #234d20; 
 }
-
 
 button {
   background-color: #77ab59;
