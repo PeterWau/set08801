@@ -31,7 +31,7 @@ function initialise() {
     const addToHistory = practise => {
         const listItem = document.createElement("li");
     
-        listItem.innerHTML = `${practise.sessionDate}-${practise.club}-${practise.skill}`;
+        listItem.innerHTML = `${practise.club} (${practise.skill})`;
         listItem.dataset.sessionId = `${practise.id}`;
         list.append(listItem);
 
