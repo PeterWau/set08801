@@ -7,7 +7,7 @@ export class Video {
         skill = "",
         embed = ""
     } = {}) {
-        this.id =id;
+        this.id = id;
         this.url = url;
         this.coach = coach;
         this.skill = skill;

@@ -8,7 +8,7 @@ export class PractiseSession {
         club="",
         distance=0,
         shape=""} = {}) {
-        this.id = this.id;
+        this.id = id;
         this.sessionDate = sessionDate;
         this.skill = skill;
         this.club = club;

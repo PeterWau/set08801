@@ -26,7 +26,7 @@ function initialise() {
     const message = document.getElementById("message");
 
     // selected
-    let selected = new PractiseSession();
+    var selected = new PractiseSession();
     
     const addToHistory = practise => {
         const listItem = document.createElement("li");
@@ -90,8 +90,8 @@ function initialise() {
     }
     
     add.addEventListener("click", event => {
-        const addPractise = new PractiseSession();
-        fillForm(addPractise);
+        selected = new PractiseSession();
+        fillForm(selected);
     });
 
     remove.addEventListener("click", event => {

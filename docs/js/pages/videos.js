@@ -22,7 +22,7 @@ function initialise() {
     dataVideos.load();
     
     const videos = dataVideos.getAllVideos();
-    let selectedVideo = new Video(); 
+    var selectedVideo = new Video(); 
 
     const addToLibrary = video => {
         const listItem = document.createElement("li");
@@ -72,8 +72,8 @@ function initialise() {
     }
 
     add.addEventListener("click", event => {
-        let selectedVideo = new Video();
-        fillForm(new Video());
+        selectedVideo = new Video();
+        fillForm(selectedVideo);
     });
 
     remove.addEventListener("click", event => {
