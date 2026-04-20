@@ -24,7 +24,7 @@ main {
 }
 
 nav {
-  padding: 1rem;
+  padding: 10px;
   overflow: hidden;
   background-color: #77ab59;
   border-radius: 10px;
@@ -67,10 +67,12 @@ section {
 
 footer {
   text-align: center;
-  border-style: solid;
+  border-style: none;
   border-color: #234d20;
-  border-radius: 2%;
-  height: 50px;
+  border-radius: 10px;
+  height: 25px; 
+  background-color: #77ab59;
+  padding: 10px;
 }
 
 h1 {
@@ -106,12 +108,6 @@ button:hover {
   background-color: #234d20;
 }
 
-.menu {
-  overflow: hidden;
-  background-color: #77ab59;
-  border-radius: 10px;
-}
-
 ul {
   list-style-type: none;
   padding: 0; 
@@ -144,9 +140,7 @@ li:hover {
 }
 
 .video-player  {
-  overflow: hidden;
-  width: max-content;
-  height: max-content;
+  text-align: center;
 }
 
 .form-group {
